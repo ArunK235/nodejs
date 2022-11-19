@@ -1,13 +1,4 @@
-const http= require('http');
 
-const routes =require("./routes");
-console.log(routes.sometext);
-
-const server = http.createServer(routes.handler);
-
-server.listen(3000);
-
-//---------------------------------------------------------------------------------------------------
 const fs= require('fs');
 const requesthandler = (req, res) =>{
 
@@ -34,16 +25,14 @@ const requesthandler = (req, res) =>{
                 res.statusCode=302;
                 res.setHeader('Location', '/');
                 return res.end();
-            });
-            
-        });   
+            });           
+        });
     }
     res.setHeader('connet-type','text/html');
     res.write('<html>');
     res.write('<head><title>My first page</title></head>');
     res.write('<body><h1>Welcome to my Node Js project</h1></body>');
     res.write('</html>');
-    
     res.end();
 };
 /*module.exports = requesthandler;
@@ -53,6 +42,27 @@ module.exports={
     handler:requesthandler,
     sometext:'some extra code'
 }
+/*
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Launch Program",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "program": "${workspaceFolder}\\app.js",
+            "restart":true,
+            "runtimeExecutable": "nodemon",
+            "console": "integratedTerminal"
+        }
+    ]
+}*/
 
 
 
